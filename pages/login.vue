@@ -2,7 +2,7 @@
   <div>
     <ServiceTitle title="Firebase Authentication" />
     <SubTitle title="SignUp / LogIn" />
-    <Form v-if="!isLoggedIn">
+    <Form>
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
           Email
@@ -27,13 +27,8 @@
           autocomplete="current-password"
         />
       </div>
-      <Btn @click="createUser">Register</Btn>
       <Btn @click="signInUser">Sign In</Btn>
     </Form>
-    <div v-else>
-      <p>You are logged in with {{ authUser.email }}.</p>
-      <Btn color="primary" outlined @click="logout">Logout</Btn>
-    </div>
   </div>
 </template>
 
@@ -61,33 +56,17 @@ export default Vue.extend({
     },
   }),
   methods: {
-    async createUser() {
-      try {
-        await this.$fire.auth.createUserWithEmailAndPassword(
-          this.formData.email,
-          this.formData.password
-        )
-      } catch (e) {
-        alert(e)
-      }
-    },
     async signInUser() {
       try {
         await this.$fire.auth.signInWithEmailAndPassword(
           this.formData.email,
           this.formData.password
-        )
+				);
+				this.$router.replace({ name: 'dashboard' })
       } catch (e) {
         alert(e)
       }
-    },
-    async logout() {
-      try {
-        await this.$fire.auth.signOut()
-      } catch (e) {
-        alert(e)
-      }
-    },
+    }
   },
 })
 </script>

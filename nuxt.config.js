@@ -43,16 +43,16 @@ export default () => {
     firebase: {
       lazy: false,
       config: {
-        apiKey: 'AIzaSyDa-YwgWTp2GDyVYEfv-XLb62100_HoEvU',
-        authDomain: 'nuxt-fire-demo.firebaseapp.com',
-        databaseURL: 'https://nuxt-fire-demo.firebaseio.com',
-        projectId: 'nuxt-fire-demo',
-        storageBucket: 'nuxt-fire-demo.appspot.com',
-        messagingSenderId: '807370470428',
-        appId: '1:807370470428:web:26da98c86c3fd352',
-        measurementId: 'G-XT6PVC1D4X',
-        fcmPublicVapidKey:
-          'BL_xoiuOe5vbb2vJkCNnuswn03NwCsyCkJUgRbuQA5tpg7J4E4z50MO8b-wrrad6fcysYAaFjHqU7D9o0oCWL8w',
+        apiKey: 'AIzaSyDuUYLpHKboQTjX7O1wxLj1031e8d2RXmk',
+        authDomain: 'kanzlei-bf.firebaseapp.com',
+        databaseURL: 'https://kanzlei-bf.firebaseio.com',
+        projectId: 'kanzlei-bf',
+        storageBucket: 'kanzlei-bf.appspot.com',
+        messagingSenderId: '727262562759',
+        appId: '1:727262562759:web:0eb43f4e8a12d88da731e2',
+        measurementId: 'G-6TTNY63VNL',
+        // fcmPublicVapidKey:
+        //   'BL_xoiuOe5vbb2vJkCNnuswn03NwCsyCkJUgRbuQA5tpg7J4E4z50MO8b-wrrad6fcysYAaFjHqU7D9o0oCWL8w',
       },
       onFirebaseHosting: false,
       services: {
@@ -61,18 +61,18 @@ export default () => {
             onAuthStateChangedAction: 'onAuthStateChanged',
           },
           ssr: true,
-          emulatorPort: process.env.NODE_ENV === 'development' ? 9099 : false,
+          // emulatorPort: process.env.NODE_ENV === 'development' ? 9099 : false,
         },
         firestore: {
           memoryOnly: false,
-          emulatorPort: process.env.NODE_ENV === 'development' ? 8080 : false,
+          // emulatorPort: process.env.NODE_ENV === 'development' ? 8080 : false,
         },
         functions: {
-          emulatorPort: process.env.NODE_ENV === 'development' ? 12345 : false,
+          // emulatorPort: process.env.NODE_ENV === 'development' ? 12345 : false,
         },
         storage: true,
         database: {
-          emulatorPort: process.env.NODE_ENV === 'development' ? 9000 : false,
+          // emulatorPort: process.env.NODE_ENV === 'development' ? 9000 : false,
         },
         performance: true,
         analytics: true,
@@ -110,7 +110,8 @@ export default () => {
      ** Nuxt.js Middleware
      */
     router: {
-      middleware: ['testMiddleware'],
+      // middleware: ['testMiddleware'],
+      middleware: 'router-auth'
     },
 
     pwa: {
